@@ -1,0 +1,20 @@
+@media screen and (min-height: 850px) {
+   .forecastList{
+       margin-top: 110px;
+   }
+}
+@media screen and (max-width: 400px) {
+.left-side{
+    width: 50%;
+}
+    img{
+        height: 75px;
+    }
+    .forecastList li {
+
+    }
+
+    .weather-box{
+        height: 80%;
+    }
+}
