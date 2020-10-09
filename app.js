@@ -1,4 +1,4 @@
-let key = '05904d35cd0c4ab692bc9c8da1060166';
+let key = '6ad27e4a9c5d4f20a4b55d4c4eb7db7e';
 let url = `https://api.weatherbit.io/v2.0/current?city=Warsaw,NC&key=${key}&lang=pl`;
 let url2 = `https://api.weatherbit.io/v2.0/forecast/daily?city=Warsaw,NC&key=${key}`;
 let temperature = document. querySelectorAll('.celsius');
