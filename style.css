@@ -10,7 +10,12 @@ url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 }
 
 body{
-    background-color: #cccddd !important;
+    background: url("https://images.unsplash.com/photo-1564639580159-74150c717f25?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80");
+    background-size: cover;
+
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 button{
     font-family: inherit ;
@@ -18,7 +23,7 @@ button{
 }
 
 .container{
-    display: flex;
+    display: none;
 
     justify-content: center;
 
@@ -122,7 +127,6 @@ height: 100%;
     flex-direction: column;
     align-self: center;
     height: 100%;
-    overflow-y: auto;
 }
 .getLocation{
     align-self: center;
@@ -162,4 +166,59 @@ img {
 }
 li{
     list-style: none;
+}
+
+.lds-dual-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+}
+.lds-dual-ring:after {
+    content: " ";
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border-radius: 50%;
+    border: 6px solid #fff;
+    border-color: #3E2B4F transparent #262626 transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+    background-color: #F5F5F5;
+}
+
+/* Track */
+::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    background-color: #262626;
+}
+
+::-webkit-scrollbar
+{
+    width: 12px;
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #3E2B4F;
 }
