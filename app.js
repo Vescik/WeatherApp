@@ -62,7 +62,6 @@ function setForecastData(data) {
         img[i].src = `https://www.weatherbit.io/static/img/icons/${icon}.png`;
 
         degree.innerHTML=data.data[0].temp + '°';
-        place.innerHTML= moment().format('MMMM Do YYYY, h:mm a');
 
         date.innerHTML = data.city_name;
         weather.innerHTML=data.data[i].weather.description   ;
@@ -87,6 +86,9 @@ function setDaysOfWeek() {
 
     }
 }
+
+function setTime() {place.innerHTML= moment().format('MMMM Do YYYY, h:mm:ss a');}
+setInterval(setTime,1000);
 setDaysOfWeek();
 setForecast();
 
