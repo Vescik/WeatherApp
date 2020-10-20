@@ -5,7 +5,7 @@ let temperature = document. querySelectorAll('.celsius');
 
 
 
-
+const forecast = document.querySelectorAll('.dateWeek');
 const date = document.querySelector('.date');
 const place = document.querySelector('.place');
 const degree = document.querySelector('.degree');
@@ -33,7 +33,7 @@ const getLocation = () =>{
 
 const showLocation = (position) =>{
     console.log(position.coords.latitude);
-   let lat = position.coords.latitude.toFixed(3);
+    let lat = position.coords.latitude.toFixed(3);
     let long = position.coords.longitude.toFixed(3);
 
     let urlGeo = `https://api.weatherbit.io/v2.0/forecast/daily?&lat=${lat}&lon=${long}&key=${key}&lang=pl`;
@@ -65,7 +65,7 @@ const nextWeekForecast = () =>{
 };
 
 function setCoords(data) {
-    for(let i = 0; i<=16;i++){
+    for(let i = 0; i<=5; i++){
         if(i > temperature.length -1 ){
             continue
         }
@@ -73,18 +73,34 @@ function setCoords(data) {
         let icon = data.data[i].weather.icon;
         img[i].src = `https://www.weatherbit.io/static/img/icons/${icon}.png`;
 
-
-
+        degree.innerHTML=data.data[0].temp + '°';
+        place.innerHTML= moment().format('MMMM Do YYYY, h:mm a');
 
         date.innerHTML = data.city_name;
-        place.innerHTML=data.data[i].datetime;
-        degree.innerHTML=data.data[i].temp + '°';
         weather.innerHTML=data.data[i].weather.description   ;
         console.log(data)
     }
 }
 
+const dayOfWeek = ['Niedz','Pon','Wt','Śr','Czw','Pt','Sob',];
+let j = 0;
+function setDaysOfWeek() {
+    let now = new Date();
+    let numericDay = now.getDay();
+    let day = dayOfWeek[now.getDay()];
 
-todayForecast();
+    for(let i = numericDay; i <=forecast.length+1; i++){
+        if(j > forecast.length+1){continue}
+        console.log(dayOfWeek[i]);
+        forecast[j].innerHTML = dayOfWeek[i];
+        console.log(j);
+        j++;
+    }
+}
+setDaysOfWeek();
 nextWeekForecast();
+todayForecast();
+
+
+
 
