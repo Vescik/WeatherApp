@@ -4,7 +4,6 @@ let url = `https://api.weatherbit.io/v2.0/forecast/daily?city_id=756135&key=${ke
 let temperature = document. querySelectorAll('.celsius');
 
 
-
 const forecast = document.querySelectorAll('.dateWeek');
 const date = document.querySelector('.date');
 const place = document.querySelector('.place');
@@ -25,7 +24,6 @@ const getLocation = () =>{
     if(navigator.geolocation){
         navigator.geolocation.getCurrentPosition(showLocation);
         console.log('success');
-        console.log(temperature);
     }else {
         console.log('error')
     }
@@ -40,31 +38,21 @@ const showLocation = (position) =>{
     fetch(urlGeo)
         .then(response => response.json())
         .then(data =>{
-            setCoords(data)
+            setForecastData(data)
         })
 };
 
 btn.addEventListener('click', getLocation);
 
-const todayForecast = () => {
+const setForecast = () =>{
     fetch(url)
         .then(response => response.json())
         .then(data => {
-            console.log(data)
-
-        });
-};
-
-const nextWeekForecast = () =>{
-    fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            setCoords(data)
-
+            setForecastData(data)
         })
 };
 
-function setCoords(data) {
+function setForecastData(data) {
     for(let i = 0; i<=5; i++){
         if(i > temperature.length -1 ){
             continue
@@ -78,7 +66,6 @@ function setCoords(data) {
 
         date.innerHTML = data.city_name;
         weather.innerHTML=data.data[i].weather.description   ;
-        console.log(data)
     }
 }
 
@@ -89,17 +76,20 @@ function setDaysOfWeek() {
     let numericDay = now.getDay();
     let day = dayOfWeek[now.getDay()];
 
+    //add +1 cuz forecast length === 3
     for(let i = numericDay; i <=forecast.length+1; i++){
-        if(j > forecast.length+1){continue}
-        console.log(dayOfWeek[i]);
-        forecast[j].innerHTML = dayOfWeek[i];
-        console.log(j);
-        j++;
+            if(j > forecast.length+1){continue}
+            console.log(dayOfWeek[i]);
+            forecast[j].innerHTML = dayOfWeek[i];
+            console.log(j);
+            j++;
+
+
     }
 }
 setDaysOfWeek();
-nextWeekForecast();
-todayForecast();
+setForecast();
+
 
 
 

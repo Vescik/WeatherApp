@@ -29,5 +29,21 @@
     .nextForecast{
         margin-top: 170px;
     }
-
+    .description{
+        font-size: 20px;
+    }
+    .degree{
+        font-size: 60px;
+    }
+    .place{
+        font-size: 15px;
+    }
+    .forecastList:first-child{
+        margin-top: 270px;
+    }
+    .getLocation{
+        font-size: 10px;
+        padding: 5px 10px;
+        margin-bottom: 20px;
+    }
 }
