@@ -68,22 +68,23 @@ function setForecastData(data) {
     }
 }
 
-const dayOfWeek = ['Niedz','Pon','Wt','Śr','Czw','Pt','Sob',];
-let j = 0;
 function setDaysOfWeek() {
+    const dayOfWeek = ['Niedz','Pon','Wt','Śr','Czw','Pt','Sob',];
     let now = new Date();
     let numericDay = now.getDay();
-    let day = dayOfWeek[now.getDay()];
-
+    let g = numericDay;
+    let j = 0;
     //add +1 cuz forecast length === 3
-    for(let i = numericDay; i <=forecast.length+1; i++){
+    for(let i = 0; i < forecast.length ; i++){
+            // let loop set different value for each li `
             if(j > forecast.length+1){continue}
             console.log(dayOfWeek[i]);
-            forecast[j].innerHTML = dayOfWeek[i];
+            console.log(numericDay);
+            forecast[j].innerHTML = dayOfWeek[g];
+            // if array ends start counting from the beginning
+        !(g >= 6) ? g++ :g = 0;
             console.log(j);
             j++;
-
-
     }
 }
 
