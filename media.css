@@ -1,8 +1,26 @@
+@media screen and (min-width: 1367px){
+    .weather-box{
+        width: 70%;
+        height: 70%;
+    }
+    .forecastList{margin-top:0 !important;}
+    .day{font-size: 70px;}
+    .date{font-size: 40px;}
+    .place{font-size: 22px;}
+    .left-side img{display: none;}
+    .degree{font-size: 150px;}
+    .description{font-size: 35px;}
+    .weather-box img{height: 95px;}
+    .getLocation{font-size: 18px; padding: 12px 25px;}
+}
+
+
 @media screen and (min-height: 850px) {
    .forecastList{
        margin-top: 110px;
    }
 }
+
 @media screen and (max-width: 400px) {
 .left-side{
     width: 50%;
